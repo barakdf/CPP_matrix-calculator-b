@@ -6,25 +6,24 @@
 namespace zich {
     class Matrix {
     private:
-        std::vector<std::vector<double>> matrix;
-        int r;
-        int c;
+        size_t r;
+        size_t c;
         double sum_val = 0;
+        std::vector<std::vector<double>> matrix;
+        std::string str;
     public:
         /* constructor */
-        Matrix(const std::vector<double> &mat, int row, int col );
+        Matrix(const std::vector<double> &mat, int row, int col);
 
         /* destructor */
-        ~Matrix();
-
         /* getters */
-        int row() const {return r;};
-        int col() const {return c;};
+        size_t row() const {return r;};
+        size_t col() const {return c;};
         double sum_value() const {return sum_val;};
 
         /* setters */
-        int& row(){ return this->r;};
-        int& col(){ return this->c;};
+        size_t & row(){ return this->r;};
+        size_t & col(){ return this->c;};
         double& sum_value(){ return this->sum_val;};
 
 
@@ -67,12 +66,12 @@ namespace zich {
 
 
         /* IO Operators*/
-        friend std::ostream& operator<<(std::ostream& os, const Matrix& other);
+        friend std::ostream& operator<<(std::ostream& os, Matrix& other);
         friend std::istream& operator>>(std::istream& input, Matrix& other);
 
 
 
     };
-}
+};
 
 #endif //CPP_MATRIX_CALCULATOR_B_MATRIX_HPP

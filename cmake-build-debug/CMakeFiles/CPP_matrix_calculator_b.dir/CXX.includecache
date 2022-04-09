@@ -6,7 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/main.cpp
+/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/Matrix.cpp
+sstream
+-
+Matrix.hpp
+/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/Matrix.hpp
+
+/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/Matrix.hpp
 iostream
 -
+vector
+-
+
+/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/main.cpp
+Matrix.hpp
+/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/Matrix.hpp
 

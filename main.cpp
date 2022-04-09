@@ -1,5 +1,4 @@
-#include <iostream>
-
+#include "Matrix.hpp"
 
 /** TODO:
  * check about converts for other types to double
@@ -57,13 +56,10 @@ int test(std::string &str) {
     return 2;
 }
 
-
+using namespace zich;
 int main() {
-    int a = 5;
-    std::string t = "hello";
-    std::cout << a << std::endl;
-    std::cout << test(t) << std::endl;
-    std::cout << t << std::endl;
-    std::cout << "Hello, World!" << std::endl;
+    std::vector<double> s = {1,2,3,4,5,6};
+    Matrix matrix{s, 2,3};
+    std::cout<< matrix << std::endl;
     return 0;
 }
