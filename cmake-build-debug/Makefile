@@ -123,6 +123,33 @@ CPP_matrix_calculator_b/fast:
 	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/build
 .PHONY : CPP_matrix_calculator_b/fast
 
+Matrix.o: Matrix.cpp.o
+
+.PHONY : Matrix.o
+
+# target to build an object file
+Matrix.cpp.o:
+	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.o
+.PHONY : Matrix.cpp.o
+
+Matrix.i: Matrix.cpp.i
+
+.PHONY : Matrix.i
+
+# target to preprocess a source file
+Matrix.cpp.i:
+	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.i
+.PHONY : Matrix.cpp.i
+
+Matrix.s: Matrix.cpp.s
+
+.PHONY : Matrix.s
+
+# target to generate assembly for a file
+Matrix.cpp.s:
+	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.s
+.PHONY : Matrix.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... CPP_matrix_calculator_b"
+	@echo "... Matrix.o"
+	@echo "... Matrix.i"
+	@echo "... Matrix.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

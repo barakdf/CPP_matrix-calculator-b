@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/Matrix.cpp">
+			<Option target="CPP_matrix_calculator_b"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/Matrix.hpp">
 			<Option target="CPP_matrix_calculator_b"/>
 		</Unit>
