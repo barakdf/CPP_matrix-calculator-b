@@ -9,6 +9,7 @@ namespace zich {
         std::vector<std::vector<double>> matrix;
         int r;
         int c;
+        double sum_val = 0;
     public:
         /* constructor */
         Matrix(const std::vector<double> &mat, int row, int col );
@@ -19,10 +20,12 @@ namespace zich {
         /* getters */
         int row() const {return r;};
         int col() const {return c;};
+        double sum_value() const {return sum_val;};
 
         /* setters */
         int& row(){ return this->r;};
         int& col(){ return this->c;};
+        double& sum_value(){ return this->sum_val;};
 
 
 

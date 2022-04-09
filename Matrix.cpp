@@ -12,10 +12,14 @@ Matrix::Matrix(const std::vector<double> &mat, int row, int col) {
     }
     this->r = row;
     this->c = col;
+    std::vector<double> temp;
     for (int i = 0; i < row; ++i) {
         for (int j = i * (col); j < (i + 1) * col; ++j) {
-            this->matrix.at(i).push_back(mat.at(j));
+            temp.push_back(mat.at(j));
+            sum_val += mat.at(j);
         }
+        this->matrix.push_back(temp);
+        temp.clear();
     }
 }
 
@@ -63,9 +67,12 @@ Matrix &Matrix::operator*=(const Matrix &other) {
         }
     }
     this->col() = other.col();
+    sum_value() = 0;
     for (int i = 0; i < this->row(); ++i) {
+        this->matrix.at(i).clear();
         for (int j = 0; j < this->col(); ++j) {
-            this->matrix.at(i).at(j) = temp.at(i).at(j);
+            this->matrix.at(i).push_back(temp.at(i).at(j));
+            sum_value() += temp.at(i).at(j);
         }
     }
     return *this;
@@ -174,7 +181,8 @@ Matrix zich::operator*(const double &scalar, const Matrix &a) {
     return Matrix{temp, a.row(), a.col()};
 
 }
-Matrix zich::operator*(const Matrix &a,const double &scalar) {
+
+Matrix zich::operator*(const Matrix &a, const double &scalar) {
     std::vector<double> temp;
     for (int i = 0; i < a.row(); ++i) {
         for (int j = 0; j < a.col(); ++j) {
@@ -186,11 +194,47 @@ Matrix zich::operator*(const Matrix &a,const double &scalar) {
 
 Matrix Matrix::operator-() const {
     double s = -1;
-    return (s * (*this) );
+    return (s * (*this));
 }
+
 Matrix Matrix::operator+() const {
     return (*this);
 }
+
+/*Boolean Expressions */
+bool zich::operator==(const Matrix &a, const Matrix &b) {
+    for (int i = 0; i < a.row(); ++i) {
+        for (int j = 0; j < a.col(); ++j) {
+            if (a.matrix[i][j] != b.matrix[i][j]) {
+                return false;
+            }
+        }
+
+    }
+    return true;
+}
+
+bool zich::operator!=(const Matrix &a, const Matrix &b) {
+    return !(a == b);
+}
+
+bool zich::operator<(const Matrix &a, const Matrix &b) {
+    return a.sum_value() < b.sum_value();
+}
+
+bool zich::operator>(const Matrix &a, const Matrix &b) {
+    return a.sum_value() > b.sum_value();
+}
+
+bool zich::operator<=(const Matrix &a, const Matrix &b) {
+    return (a < b) || (a == b);
+}
+
+bool zich::operator>=(const Matrix &a, const Matrix &b) {
+    return (a > b) || (a == b);
+}
+
+
 
 
 
