@@ -19,6 +19,7 @@ namespace zich {
         /* getters */
         size_t row() const {return r;};
         size_t col() const {return c;};
+        std::vector<std::vector<double>> _matrix() const {return this->matrix;}
         double sum_value() const {return sum_val;};
 
         /* setters */

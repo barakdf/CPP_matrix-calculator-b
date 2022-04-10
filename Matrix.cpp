@@ -25,7 +25,6 @@ Matrix::Matrix(const std::vector<double> &mat, int row, int col) {
 }
 
 
-
 /* self-object arithmetic operators */
 
 Matrix &Matrix::operator+=(const Matrix &other) {
@@ -115,13 +114,13 @@ Matrix &Matrix::operator++() {
 }
 
 /* Postfix */
-Matrix Matrix::operator--(int flag) {
+Matrix Matrix::operator--(int dummy_flag_for_postfix_increment) {
     Matrix copy = *this;
     --(*this);
     return copy;
 }
 
-Matrix Matrix::operator++(int flag) {
+Matrix Matrix::operator++(int dummy_flag_for_postfix_increment) {
     Matrix copy = *this;
     ++(*this);
     return copy;
@@ -240,26 +239,21 @@ bool zich::operator>=(const Matrix &a, const Matrix &b) {
     return (a > b) || (a == b);
 }
 
-std::ostream& zich::operator<<(std::ostream &os, zich::Matrix &other) {
-    std::string output;
-    for (const std::vector<double>& row : other.matrix) {
-        output.push_back('[');
+std::ostream &operator<<(std::ostream &os, zich::Matrix &other) {
+    for (size_t r = 0; r < other.row(); ++r) {
+        os << '[';
         for (size_t i = 0; i < other.col(); ++i) {
-            output.push_back((char)row[i]);
-            std::cout << (char)row[i];
-            if (i < row.size() - 1) {
-                output.push_back(' ');
+            os << other._matrix()[r][i];
+            if (i < other.col() - 1) {
+                os << ' ';
             }
         }
-        output.append("]\n");
+        os << "]\n";
     }
-    std::ostringstream out;
-    out << output;
-    other.str = output;
-    return os << other.str;
+    return os ;
 }
 
-std::istream & zich::operator>>(std::istream &input, Matrix &other) {
+std::istream &zich::operator>>(std::istream &input, Matrix &other) {
     return input;
 }
 
