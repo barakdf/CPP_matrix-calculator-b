@@ -8,7 +8,7 @@ using namespace zich;
 
 Matrix::Matrix(const std::vector<double> &mat, int row, int col) {
     if (row * col != mat.size()) {
-        std::cout << "row*col = " << row * col << "Mat.size = " << mat.size() << std::endl;
+//        std::cout << "row*col = " << row * col << "Mat.size = " << mat.size() << std::endl;
         throw std::invalid_argument("size does not match the vector!");
     }
     this->r = (size_t) row;
@@ -388,23 +388,6 @@ std::istream &zich::operator>>(std::istream &input, Matrix &other) {
                 }
                 break;
         }
-//        if (inputstr.at(i) == '[') {
-//              row_cout++;
-//        }
-//        else if (isdigit(inputstr.at(i))) {
-//            temp.push_back((double )inputstr.at(i));
-//        } else if (inputstr.at(i) == ']') {
-//            if (inputstr.at(i+1) != ',') {
-//                break;
-//            }
-//
-//        }
-//        else if (inputstr.at(i+1) != ' ') {
-//            if (inputstr.at(i+1) != ']') {
-//                throw invalid_argument("wrong format");
-//            }
-//            col_count++;
-//        }
     }
     other.sum_value() = 0;
 
