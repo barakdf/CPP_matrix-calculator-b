@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/Matrix.cpp
+/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/sources/Matrix.cpp
 sstream
 -
 Matrix.hpp
-/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/Matrix.hpp
+/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/sources/Matrix.hpp
 
-/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/Matrix.hpp
+/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/sources/Matrix.hpp
 iostream
 -
 vector

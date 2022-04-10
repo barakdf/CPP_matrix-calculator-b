@@ -1,4 +1,5 @@
 #include "Matrix.hpp"
+#include "sstream"
 
 /** TODO:
  * check about converts for other types to double
@@ -57,9 +58,12 @@ int test(std::string &str) {
 }
 
 using namespace zich;
-int main() {
-    std::vector<double> s = {1,2,3,4,5,6};
-    Matrix matrix{s, 2,3};
-    std::cout<< matrix << std::endl;
-    return 0;
-}
+//int main() {
+//    std::vector<double> s = {1,2,3,4,5,6};
+//    Matrix matrix{s, 2,3};
+//    std::cout<< matrix << std::endl;
+//    istringstream is4{"[1 1 1 1], [1 1 1 1], [1 1 1 1]"};
+//    is4 >> matrix;
+//    cout << matrix << endl;
+//    return 0;
+//}

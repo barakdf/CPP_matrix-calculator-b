@@ -51,6 +51,34 @@ Matrix &Matrix::operator-=(const Matrix &other) {
     return *this;
 }
 
+
+/* because of student1 TEST ! */
+Matrix &Matrix::operator+=(const double &scalar) {
+    if (scalar == 0) {
+        return *this;
+    }
+    for (size_t i = 0; i < this->row(); ++i) {
+        for (size_t j = 0; j < this->col(); ++j) {
+            this->matrix.at(i).at(j) -= scalar;
+        }
+    }
+    return *this;
+}
+
+/* because of student1 TEST ! */
+Matrix &Matrix::operator-=(const double &scalar) {
+    if (scalar == 0) {
+        return *this;
+    }
+    for (size_t i = 0; i < this->row(); ++i) {
+        for (size_t j = 0; j < this->col(); ++j) {
+            this->matrix.at(i).at(j) -= scalar;
+        }
+    }
+    return *this;
+}
+
+
 Matrix &Matrix::operator*=(const Matrix &other) {
     if (this->col() != other.row()) {
         throw std::invalid_argument("Illegal matrix multiplication!");
@@ -107,20 +135,20 @@ Matrix &Matrix::operator--() {
 Matrix &Matrix::operator++() {
     for (size_t i = 0; i < this->row(); ++i) {
         for (size_t j = 0; j < this->col(); ++j) {
-            this->matrix.at(i).at(j) -= 1;
+            this->matrix.at(i).at(j) += 1;
         }
     }
     return *this;
 }
 
 /* Postfix */
-Matrix Matrix::operator--(int dummy_flag_for_postfix_increment) {
+const Matrix Matrix::operator--(int dummy_flag_for_postfix_increment) {
     Matrix copy = *this;
     --(*this);
     return copy;
 }
 
-Matrix Matrix::operator++(int dummy_flag_for_postfix_increment) {
+const Matrix Matrix::operator++(int dummy_flag_for_postfix_increment) {
     Matrix copy = *this;
     ++(*this);
     return copy;
@@ -208,6 +236,9 @@ Matrix Matrix::operator+() const {
 
 /*Boolean Expressions */
 bool zich::operator==(const Matrix &a, const Matrix &b) {
+    if ((a.col() != b.col()) || a.row() != b.row()) {
+        throw std::invalid_argument("Matrices size should be equal!");
+    }
     for (size_t i = 0; i < a.row(); ++i) {
         for (size_t j = 0; j < a.col(); ++j) {
             if (a.matrix[i][j] != b.matrix[i][j]) {
@@ -224,22 +255,35 @@ bool zich::operator!=(const Matrix &a, const Matrix &b) {
 }
 
 bool zich::operator<(const Matrix &a, const Matrix &b) {
+    if ((a.col() != b.col()) || a.row() != b.row()) {
+        throw std::invalid_argument("Matrices size should be equal!");
+    }
+
     return a.sum_value() < b.sum_value();
 }
 
 bool zich::operator>(const Matrix &a, const Matrix &b) {
+    if ((a.col() != b.col()) || a.row() != b.row()) {
+        throw std::invalid_argument("Matrices size should be equal!");
+    }
     return a.sum_value() > b.sum_value();
 }
 
 bool zich::operator<=(const Matrix &a, const Matrix &b) {
+    if ((a.col() != b.col()) || a.row() != b.row()) {
+        throw std::invalid_argument("Matrices size should be equal!");
+    }
     return (a < b) || (a == b);
 }
 
 bool zich::operator>=(const Matrix &a, const Matrix &b) {
+    if ((a.col() != b.col()) || a.row() != b.row()) {
+        throw std::invalid_argument("Matrices size should be equal!");
+    }
     return (a > b) || (a == b);
 }
 
-std::ostream &operator<<(std::ostream &os, zich::Matrix &other) {
+std::ostream &zich::operator<<(std::ostream &os, zich::Matrix &other) {
     for (size_t r = 0; r < other.row(); ++r) {
         os << '[';
         for (size_t i = 0; i < other.col(); ++i) {
@@ -248,12 +292,135 @@ std::ostream &operator<<(std::ostream &os, zich::Matrix &other) {
                 os << ' ';
             }
         }
-        os << "]\n";
+        if (r == other.row() - 1) {
+            os << "]";
+        } else {
+            os << "]\n";
+        }
     }
-    return os ;
+    return os;
 }
 
+static istream &getAndCheckNextCharIs(istream &input, char expectedChar) {
+    char actualChar;
+    input >> actualChar;
+    if (!input) { return input; }
+
+    if (actualChar != expectedChar) {
+        // failbit is for format error
+        input.setstate(ios::failbit);
+    }
+    return input;
+}
+
+
 std::istream &zich::operator>>(std::istream &input, Matrix &other) {
+
+    std::string inputstr;
+    getline(input, inputstr);
+    size_t row_cout = 0;
+    size_t col_count = 0;
+    bool final = false;
+    const int open = 1;
+    const int digit = 2;
+    const int close = 3;
+    const int space = 4;
+    int state = 1;
+
+    std::vector<std::vector<double>> temp_row;
+    std::vector<double> temp_col;
+
+    vector<double> temp;
+    for (size_t i = 0; i < inputstr.size() - 1 && !final; ++i) {
+        switch (state) {
+            case open:
+                if (inputstr.at(i) != '[') {
+                    cout << inputstr.at(i) << endl;
+                    string error = "wrong format in open the value is ";
+                    error.push_back(inputstr.at(i));
+                    error.append("and the i is ");
+                    cout << "HERE" << i << endl;
+                    throw invalid_argument(error);
+                }
+                state = digit;
+                break;
+
+            case close:
+                if (inputstr.at(i + 1) != ',') {
+                    throw invalid_argument("wrong format in close");
+                }
+                i++;
+                state = space;
+                break;
+            case space:
+                if (isdigit(inputstr.at(i + 1))) {
+                    state = digit;
+                } else if (inputstr.at(i + 1) != ']') {
+                    state = open;
+                } else {
+                    cout << "HERE " << i << endl;
+
+                    string error = "wrong format in space ";
+                    error.push_back(inputstr.at(i));
+                    throw invalid_argument(error);
+                };
+                break;
+            case digit:
+                if (!isdigit(inputstr.at(i)) || i == inputstr.size() - 1) {
+                    throw invalid_argument("wrong format in digit");
+                }
+                string s;
+                s+= inputstr.at(i);
+                temp_col.push_back(stod(s));
+                if (inputstr.at(i + 1) == ']') {
+                    row_cout++;
+                    temp_row.push_back(temp_col);
+                    if (i + 1 == inputstr.size() - 1) {
+                        final = true;
+                        break;
+                    }
+                    temp_col.clear();
+                    col_count = 0;
+                    state = close;
+                } else {
+                    col_count++;
+                    state = space;
+                }
+                break;
+        }
+//        if (inputstr.at(i) == '[') {
+//              row_cout++;
+//        }
+//        else if (isdigit(inputstr.at(i))) {
+//            temp.push_back((double )inputstr.at(i));
+//        } else if (inputstr.at(i) == ']') {
+//            if (inputstr.at(i+1) != ',') {
+//                break;
+//            }
+//
+//        }
+//        else if (inputstr.at(i+1) != ' ') {
+//            if (inputstr.at(i+1) != ']') {
+//                throw invalid_argument("wrong format");
+//            }
+//            col_count++;
+//        }
+    }
+    other.sum_value() = 0;
+
+    for (size_t i = 0; i < row_cout; ++i) {
+        if (i < other.row()) {
+            other.matrix.at(i).clear();
+        } else {
+            other.matrix.push_back(temp_row.at(i));
+        }
+        for (size_t j = 0; j < col_count; ++j) {
+            other.matrix.at(i).push_back(temp_row.at(i).at(j));
+            other.sum_value() += temp_row.at(i).at(j);
+        }
+    }
+    other.row() = row_cout;
+    other.col() = col_count;
     return input;
 }
 

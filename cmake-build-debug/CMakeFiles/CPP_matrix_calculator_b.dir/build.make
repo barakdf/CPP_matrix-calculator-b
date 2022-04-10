@@ -57,42 +57,42 @@ include CMakeFiles/CPP_matrix_calculator_b.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/CPP_matrix_calculator_b.dir/flags.make
 
-CMakeFiles/CPP_matrix_calculator_b.dir/main.cpp.o: CMakeFiles/CPP_matrix_calculator_b.dir/flags.make
-CMakeFiles/CPP_matrix_calculator_b.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CPP_matrix_calculator_b.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CPP_matrix_calculator_b.dir/main.cpp.o -c /mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/main.cpp
+CMakeFiles/CPP_matrix_calculator_b.dir/sources/main.cpp.o: CMakeFiles/CPP_matrix_calculator_b.dir/flags.make
+CMakeFiles/CPP_matrix_calculator_b.dir/sources/main.cpp.o: ../sources/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CPP_matrix_calculator_b.dir/sources/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CPP_matrix_calculator_b.dir/sources/main.cpp.o -c /mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/sources/main.cpp
 
-CMakeFiles/CPP_matrix_calculator_b.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CPP_matrix_calculator_b.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/main.cpp > CMakeFiles/CPP_matrix_calculator_b.dir/main.cpp.i
+CMakeFiles/CPP_matrix_calculator_b.dir/sources/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CPP_matrix_calculator_b.dir/sources/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/sources/main.cpp > CMakeFiles/CPP_matrix_calculator_b.dir/sources/main.cpp.i
 
-CMakeFiles/CPP_matrix_calculator_b.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CPP_matrix_calculator_b.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/main.cpp -o CMakeFiles/CPP_matrix_calculator_b.dir/main.cpp.s
+CMakeFiles/CPP_matrix_calculator_b.dir/sources/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CPP_matrix_calculator_b.dir/sources/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/sources/main.cpp -o CMakeFiles/CPP_matrix_calculator_b.dir/sources/main.cpp.s
 
-CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.o: CMakeFiles/CPP_matrix_calculator_b.dir/flags.make
-CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.o: ../Matrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.o -c /mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/Matrix.cpp
+CMakeFiles/CPP_matrix_calculator_b.dir/sources/Matrix.cpp.o: CMakeFiles/CPP_matrix_calculator_b.dir/flags.make
+CMakeFiles/CPP_matrix_calculator_b.dir/sources/Matrix.cpp.o: ../sources/Matrix.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CPP_matrix_calculator_b.dir/sources/Matrix.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CPP_matrix_calculator_b.dir/sources/Matrix.cpp.o -c /mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/sources/Matrix.cpp
 
-CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/Matrix.cpp > CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.i
+CMakeFiles/CPP_matrix_calculator_b.dir/sources/Matrix.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CPP_matrix_calculator_b.dir/sources/Matrix.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/sources/Matrix.cpp > CMakeFiles/CPP_matrix_calculator_b.dir/sources/Matrix.cpp.i
 
-CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/Matrix.cpp -o CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.s
+CMakeFiles/CPP_matrix_calculator_b.dir/sources/Matrix.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CPP_matrix_calculator_b.dir/sources/Matrix.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/sources/Matrix.cpp -o CMakeFiles/CPP_matrix_calculator_b.dir/sources/Matrix.cpp.s
 
 # Object files for target CPP_matrix_calculator_b
 CPP_matrix_calculator_b_OBJECTS = \
-"CMakeFiles/CPP_matrix_calculator_b.dir/main.cpp.o" \
-"CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.o"
+"CMakeFiles/CPP_matrix_calculator_b.dir/sources/main.cpp.o" \
+"CMakeFiles/CPP_matrix_calculator_b.dir/sources/Matrix.cpp.o"
 
 # External object files for target CPP_matrix_calculator_b
 CPP_matrix_calculator_b_EXTERNAL_OBJECTS =
 
-CPP_matrix_calculator_b: CMakeFiles/CPP_matrix_calculator_b.dir/main.cpp.o
-CPP_matrix_calculator_b: CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.o
+CPP_matrix_calculator_b: CMakeFiles/CPP_matrix_calculator_b.dir/sources/main.cpp.o
+CPP_matrix_calculator_b: CMakeFiles/CPP_matrix_calculator_b.dir/sources/Matrix.cpp.o
 CPP_matrix_calculator_b: CMakeFiles/CPP_matrix_calculator_b.dir/build.make
 CPP_matrix_calculator_b: CMakeFiles/CPP_matrix_calculator_b.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/barak/Documents/GitHub/CPP_matrix-calculator-b/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable CPP_matrix_calculator_b"

@@ -123,59 +123,59 @@ CPP_matrix_calculator_b/fast:
 	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/build
 .PHONY : CPP_matrix_calculator_b/fast
 
-Matrix.o: Matrix.cpp.o
+sources/Matrix.o: sources/Matrix.cpp.o
 
-.PHONY : Matrix.o
-
-# target to build an object file
-Matrix.cpp.o:
-	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.o
-.PHONY : Matrix.cpp.o
-
-Matrix.i: Matrix.cpp.i
-
-.PHONY : Matrix.i
-
-# target to preprocess a source file
-Matrix.cpp.i:
-	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.i
-.PHONY : Matrix.cpp.i
-
-Matrix.s: Matrix.cpp.s
-
-.PHONY : Matrix.s
-
-# target to generate assembly for a file
-Matrix.cpp.s:
-	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/Matrix.cpp.s
-.PHONY : Matrix.cpp.s
-
-main.o: main.cpp.o
-
-.PHONY : main.o
+.PHONY : sources/Matrix.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/main.cpp.o
-.PHONY : main.cpp.o
+sources/Matrix.cpp.o:
+	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/sources/Matrix.cpp.o
+.PHONY : sources/Matrix.cpp.o
 
-main.i: main.cpp.i
+sources/Matrix.i: sources/Matrix.cpp.i
 
-.PHONY : main.i
+.PHONY : sources/Matrix.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/main.cpp.i
-.PHONY : main.cpp.i
+sources/Matrix.cpp.i:
+	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/sources/Matrix.cpp.i
+.PHONY : sources/Matrix.cpp.i
 
-main.s: main.cpp.s
+sources/Matrix.s: sources/Matrix.cpp.s
 
-.PHONY : main.s
+.PHONY : sources/Matrix.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/main.cpp.s
-.PHONY : main.cpp.s
+sources/Matrix.cpp.s:
+	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/sources/Matrix.cpp.s
+.PHONY : sources/Matrix.cpp.s
+
+sources/main.o: sources/main.cpp.o
+
+.PHONY : sources/main.o
+
+# target to build an object file
+sources/main.cpp.o:
+	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/sources/main.cpp.o
+.PHONY : sources/main.cpp.o
+
+sources/main.i: sources/main.cpp.i
+
+.PHONY : sources/main.i
+
+# target to preprocess a source file
+sources/main.cpp.i:
+	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/sources/main.cpp.i
+.PHONY : sources/main.cpp.i
+
+sources/main.s: sources/main.cpp.s
+
+.PHONY : sources/main.s
+
+# target to generate assembly for a file
+sources/main.cpp.s:
+	$(MAKE) -f CMakeFiles/CPP_matrix_calculator_b.dir/build.make CMakeFiles/CPP_matrix_calculator_b.dir/sources/main.cpp.s
+.PHONY : sources/main.cpp.s
 
 # Help Target
 help:
@@ -186,12 +186,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... CPP_matrix_calculator_b"
-	@echo "... Matrix.o"
-	@echo "... Matrix.i"
-	@echo "... Matrix.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... sources/Matrix.o"
+	@echo "... sources/Matrix.i"
+	@echo "... sources/Matrix.s"
+	@echo "... sources/main.o"
+	@echo "... sources/main.i"
+	@echo "... sources/main.s"
 .PHONY : help
 
 

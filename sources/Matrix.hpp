@@ -2,6 +2,7 @@
 #include <vector>
 #ifndef CPP_MATRIX_CALCULATOR_B_MATRIX_HPP
 #define CPP_MATRIX_CALCULATOR_B_MATRIX_HPP
+using namespace std;
 
 namespace zich {
     class Matrix {
@@ -10,7 +11,7 @@ namespace zich {
         size_t c;
         double sum_val = 0;
         std::vector<std::vector<double>> matrix;
-        std::string str;
+        string inputs;
     public:
         /* constructor */
         Matrix(const std::vector<double> &mat, int row, int col);
@@ -32,6 +33,8 @@ namespace zich {
         /* self-object arithmetic operators */
         Matrix& operator+=(const Matrix &other);
         Matrix& operator-=(const Matrix &other);
+        Matrix &operator+=(const double &scalar);
+        Matrix &operator-=(const double &scalar);
         Matrix& operator*=(const Matrix &other);
         Matrix& operator*=(const double& scalar);
 
@@ -40,8 +43,8 @@ namespace zich {
         Matrix& operator++();
 
         /* Postfix */
-        Matrix operator--(int flag);
-        Matrix operator++(int flag);
+        const Matrix operator--(int dummy_flag_for_postfix_increment);
+        const Matrix operator++(int dummy_flag_for_postfix_increment);
 
         /* Arithmetic Operators */
         friend Matrix operator+(const Matrix &a, const Matrix &b);
