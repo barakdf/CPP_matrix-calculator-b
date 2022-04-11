@@ -43,8 +43,8 @@ namespace zich {
         Matrix& operator++();
 
         /* Postfix */
-        const Matrix operator--(int dummy_flag_for_postfix_increment);
-        const Matrix operator++(int dummy_flag_for_postfix_increment);
+        Matrix operator--(int dummy_flag_for_postfix_increment);
+        Matrix operator++(int dummy_flag_for_postfix_increment);
 
         /* Arithmetic Operators */
         friend Matrix operator+(const Matrix &a, const Matrix &b);

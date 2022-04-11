@@ -8,7 +8,6 @@ using namespace zich;
 
 Matrix::Matrix(const std::vector<double> &mat, int row, int col) {
     if (row * col != mat.size()) {
-//        std::cout << "row*col = " << row * col << "Mat.size = " << mat.size() << std::endl;
         throw std::invalid_argument("size does not match the vector!");
     }
     this->r = (size_t) row;
@@ -28,6 +27,7 @@ Matrix::Matrix(const std::vector<double> &mat, int row, int col) {
 /* self-object arithmetic operators */
 
 Matrix &Matrix::operator+=(const Matrix &other) {
+    /* check if the operation is valid by comparing the matrices size, if size is not equal throwing error */
     if (this->col() != other.col() || this->row() != other.row()) {
         throw std::invalid_argument("Matrices must be the same size!");
     }
@@ -40,6 +40,7 @@ Matrix &Matrix::operator+=(const Matrix &other) {
 }
 
 Matrix &Matrix::operator-=(const Matrix &other) {
+    /* check if the operation is valid by comparing the matrices size, if size is not equal throwing error */
     if (this->col() != other.col() || this->row() != other.row()) {
         throw std::invalid_argument("Matrices must be the same size!");
     }
@@ -80,6 +81,8 @@ Matrix &Matrix::operator-=(const double &scalar) {
 
 
 Matrix &Matrix::operator*=(const Matrix &other) {
+    /* check if the operation is valid by comparing the matrices size,
+     * if the right matrix col size is not equal to the left matrix row size throwing error */
     if (this->col() != other.row()) {
         throw std::invalid_argument("Illegal matrix multiplication!");
     }
@@ -142,13 +145,13 @@ Matrix &Matrix::operator++() {
 }
 
 /* Postfix */
-const Matrix Matrix::operator--(int dummy_flag_for_postfix_increment) {
+Matrix Matrix::operator--(int dummy_flag_for_postfix_increment) {
     Matrix copy = *this;
     --(*this);
     return copy;
 }
 
-const Matrix Matrix::operator++(int dummy_flag_for_postfix_increment) {
+Matrix Matrix::operator++(int dummy_flag_for_postfix_increment) {
     Matrix copy = *this;
     ++(*this);
     return copy;
@@ -156,6 +159,7 @@ const Matrix Matrix::operator++(int dummy_flag_for_postfix_increment) {
 
 /* Arithmetic Operators */
 Matrix zich::operator+(const Matrix &a, const Matrix &b) {
+    /* check if the operation is valid by comparing the matrices size, if size is not equal throwing error */
     if (a.col() != b.col() || a.row() != b.row()) {
         throw std::invalid_argument("Matrices must be the same size!");
     }
@@ -172,6 +176,7 @@ Matrix zich::operator+(const Matrix &a, const Matrix &b) {
 }
 
 Matrix zich::operator-(const Matrix &a, const Matrix &b) {
+    /* check if the operation is valid by comparing the matrices size, if size is not equal throwing error */
     if (a.col() != b.col() || a.row() != b.row()) {
         throw std::invalid_argument("Matrices must be the same size!");
     }
@@ -187,6 +192,8 @@ Matrix zich::operator-(const Matrix &a, const Matrix &b) {
 }
 
 Matrix zich::operator*(const Matrix &a, const Matrix &b) {
+    /* check if the operation is valid by comparing the matrices size,
+     * if the right matrix col size is not equal to the left matrix row size throwing error */
     if (a.col() != b.row()) {
         throw std::invalid_argument("Illegal matrix multiplication!");
     }
@@ -204,7 +211,7 @@ Matrix zich::operator*(const Matrix &a, const Matrix &b) {
     return Matrix{temp, (int) a.row(), (int) b.col()};
 }
 
-Matrix zich::operator*(const double &scalar, const Matrix &a) {
+Matrix zich::operator*(const double &scalar, const zich::Matrix &a) {
     std::vector<double> temp;
     for (size_t i = 0; i < a.row(); ++i) {
         for (size_t j = 0; j < a.col(); ++j) {
@@ -301,17 +308,17 @@ std::ostream &zich::operator<<(std::ostream &os, zich::Matrix &other) {
     return os;
 }
 
-static istream &getAndCheckNextCharIs(istream &input, char expectedChar) {
-    char actualChar;
-    input >> actualChar;
-    if (!input) { return input; }
-
-    if (actualChar != expectedChar) {
-        // failbit is for format error
-        input.setstate(ios::failbit);
-    }
-    return input;
-}
+//static istream &getAndCheckNextCharIs(istream &input, char expectedChar) {
+//    char actualChar;
+//    input >> actualChar;
+//    if (!input) { return input; }
+//
+//    if (actualChar != expectedChar) {
+//        // failbit is for format error
+//        input.setstate(ios::failbit);
+//    }
+//    return input;
+//}
 
 
 std::istream &zich::operator>>(std::istream &input, Matrix &other) {
@@ -336,10 +343,8 @@ std::istream &zich::operator>>(std::istream &input, Matrix &other) {
             case open:
                 if (inputstr.at(i) != '[') {
                     cout << inputstr.at(i) << endl;
-                    string error = "wrong format in open the value is ";
+                    string error = "wrong format in open";
                     error.push_back(inputstr.at(i));
-                    error.append("and the i is ");
-                    cout << "HERE" << i << endl;
                     throw invalid_argument(error);
                 }
                 state = digit;
@@ -350,23 +355,24 @@ std::istream &zich::operator>>(std::istream &input, Matrix &other) {
                     throw invalid_argument("wrong format in close");
                 }
                 i++;
+                if (inputstr.at(i+1) != ' '){
+                    throw invalid_argument("wrong format in close");
+                }
                 state = space;
                 break;
             case space:
-                if (isdigit(inputstr.at(i + 1))) {
+                if (isdigit(inputstr.at(i + 1)) != 0) {
                     state = digit;
                 } else if (inputstr.at(i + 1) != ']') {
                     state = open;
                 } else {
-                    cout << "HERE " << i << endl;
-
                     string error = "wrong format in space ";
                     error.push_back(inputstr.at(i));
                     throw invalid_argument(error);
                 };
                 break;
             case digit:
-                if (!isdigit(inputstr.at(i)) || i == inputstr.size() - 1) {
+                if (isdigit(inputstr.at(i)) == 0 || i == inputstr.size() - 3) {
                     throw invalid_argument("wrong format in digit");
                 }
                 string s;
