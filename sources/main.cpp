@@ -1,10 +1,6 @@
 #include "Matrix.hpp"
 #include "sstream"
 
-/** TODO:
- * check about converts for other types to double
- * */
-
 
 /**
  * (a+=b) --> Matrix& operator+=(const Matrix& other){.... return *this}
@@ -52,22 +48,31 @@
  * */
 
 
-int test(std::string &str) {
-    str = "DAMN";
-    return 2;
-}
 
 using namespace zich;
+
 //int main() {
-//    std::vector<double> s = {1,2,3,4,5,6};
-//    Matrix matrix{s, 2,3};
-//    std::cout<< matrix << std::endl;
-//    Matrix m = (-matrix);
-//    std::cout <<  --m << std::endl;
-//    std::cout<< matrix << std::endl;
+//    std::vector<double> s = {1, 2, 3, 4, 5, 6};
+//    Matrix matrix{s, 2, 3};
+//    Matrix matrix2 = matrix;
+//    std::cout << "---matrix and copy before change -----------" << endl;
+//    std::cout << "first matrix\n" << matrix << std::endl;
+//    std::cout << "second matrix\n" << matrix2 << "\n" << std::endl;
+//    matrix *= -1;
+//    std::cout << "---matrix and copy after change the original by multiply * -1 -----------" << endl;
+//    std::cout << "first matrix\n" << matrix << std::endl;
+//    std::cout << "second matrix\n" << matrix2 << "\n" << std::endl;
 //
-////    istringstream is4{"[1 1 1 1], [1 1 1 1], [1 1 1 1]"};
-////    is4 >> matrix;
-////    cout << matrix << endl;
+//    Matrix m = (-matrix);
+//    std::cout << "---new matrix -M- equal to (-matrix) \n" << std::endl;
+//    std::cout << --m << "\n" << std::endl;
+//    std::cout << "---the matrix -M- after prefix --M \n" << std::endl;
+//    std::cout << matrix << "\n" << std::endl;
+//
+//    std::cout << "Testing input with real numbers --> [[1.4768 1 1.70707 1], [200000 0.2 -1 0.1234], [9 -9 9 -9]" << endl;
+//
+//    istringstream is4{"[1.4768 1 1.70707 1], [200000 0.2 -1 0.1234], [9 -9 9 -9]"};
+//    is4 >> matrix;
+//    cout << matrix << endl;
 //    return 0;
 //}
